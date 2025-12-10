@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:14:16 by ocviller          #+#    #+#             */
-/*   Updated: 2025/12/09 18:04:12 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:05:30 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,23 @@ void print_title(int i)
 void fill_contact(int i, PhoneBook *phone, std::string str)
 {
     if (i == 0)
-        phone->contact_list[0].first_name = str;
+        phone->contact_list[phone->nbr_contact - 1].first_name = str;
     if (i == 1)
-        phone->contact_list[0].last_name = str; 
+        phone->contact_list[phone->nbr_contact - 1].last_name = str; 
     if (i == 2)
-        phone->contact_list[0].nickname = str; 
+        phone->contact_list[phone->nbr_contact - 1].nickname = str; 
     if (i == 3)
-        phone->contact_list[0].phone_number = str; 
+        phone->contact_list[phone->nbr_contact - 1].phone_number = str; 
     if (i == 4)
-        phone->contact_list[0].darkest_secret = str; 
+        phone->contact_list[phone->nbr_contact - 1].darkest_secret = str;
 }
 
 int add_contact(PhoneBook *phone)
 {
     std::string str;
     
-    (void)phone;
     std::cout << "\n---Contact registration :---\n\n";
+    phone->nbr_contact++;
     for (int i = 0; i < 5; i++)
     {
         print_title(i);
@@ -55,8 +55,26 @@ int add_contact(PhoneBook *phone)
             std::cout << "This field can't be blank\n";
             std::getline(std::cin, str);
         }
+        if (i == 3)
+        {
+            while (!string_nbr(str))
+            {
+                std::cout << "Only digits are allowed, please enter the phone number again.\n";
+                std::getline(std::cin, str);
+            }
+        }
+        else
+        {
+            while (!allowed(str))
+            {
+                std::cout << "Only letters, digits, spaces and hyphens are allowed, please try again.\n";
+                std::getline(std::cin, str);
+            }
+        }
         if (!ft_strcmp(str, "EXIT"))
             return (0);
+        if (phone->nbr_contact == 9)
+            phone->nbr_contact = 1;
         fill_contact(i, phone, str);
     }
     std::cout << "\n---Contact created!---\n\n";
