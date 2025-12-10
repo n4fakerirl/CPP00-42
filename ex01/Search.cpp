@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:37:22 by ocviller          #+#    #+#             */
-/*   Updated: 2025/12/10 12:07:57 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:06:35 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int select_contact(PhoneBook *phone)
     while (1)
     {
         std::getline(std::cin, str);
-        if (!ft_strcmp(str, "BACK"))
+        if (str == "BACK")
             return (1);
-        else if (!ft_strcmp(str, "EXIT"))
+        else if ((str == "EXIT") || std::cin.eof())
             return (0);
         index = ft_atol(str.c_str());
         if (index < 1 || index > 8)

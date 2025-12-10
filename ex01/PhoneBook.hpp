@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 15:47:17 by ocviller          #+#    #+#             */
-/*   Updated: 2025/12/10 12:05:48 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:07:06 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ class PhoneBook
 };
 
 
-int ft_strcmp(std::string str1, std::string str2);
-std::string ft_strdup(std::string src);
 int add_contact(PhoneBook *phone);
 int printbook(PhoneBook *phone);
 long ft_atol(const char *str);
 int allowed(std::string str);
 int string_nbr(std::string str);
+int check_sp(std::string str);
 
 #endif

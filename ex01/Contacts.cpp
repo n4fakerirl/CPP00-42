@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:14:16 by ocviller          #+#    #+#             */
-/*   Updated: 2025/12/10 12:05:30 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:41:51 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ int add_contact(PhoneBook *phone)
     phone->nbr_contact++;
     for (int i = 0; i < 5; i++)
     {
+        if (str == "EXIT" || std::cin.eof())
+            return (0); 
         print_title(i);
         std::getline(std::cin, str);
-        while (str.empty() || str[0] == '\0')
+        while (str.empty() || str[0] == '\0' || !check_sp(str))
         {
             std::cout << "This field can't be blank\n";
             std::getline(std::cin, str);
@@ -71,8 +73,6 @@ int add_contact(PhoneBook *phone)
                 std::getline(std::cin, str);
             }
         }
-        if (!ft_strcmp(str, "EXIT"))
-            return (0);
         if (phone->nbr_contact == 9)
             phone->nbr_contact = 1;
         fill_contact(i, phone, str);
