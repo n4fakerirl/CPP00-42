@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 17:14:16 by ocviller          #+#    #+#             */
-/*   Updated: 2025/12/10 13:41:51 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/12/10 14:00:32 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,18 @@ int add_contact(PhoneBook *phone)
         {
             std::cout << "This field can't be blank\n";
             std::getline(std::cin, str);
+            if (str == "EXIT" || std::cin.eof())
+                    return (0);
         }
         if (i == 3)
         {
             while (!string_nbr(str))
             {
+    
                 std::cout << "Only digits are allowed, please enter the phone number again.\n";
                 std::getline(std::cin, str);
+                if (str == "EXIT" || std::cin.eof())
+                    return (0);
             }
         }
         else
@@ -71,6 +76,8 @@ int add_contact(PhoneBook *phone)
             {
                 std::cout << "Only letters, digits, spaces and hyphens are allowed, please try again.\n";
                 std::getline(std::cin, str);
+                if (str == "EXIT" || std::cin.eof())
+                    return (0);
             }
         }
         if (phone->nbr_contact == 9)
