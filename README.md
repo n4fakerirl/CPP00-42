@@ -1,4 +1,4 @@
-# CPP01 - 42
+# CPP00 - 42
 
 ## 📚 Description
 
