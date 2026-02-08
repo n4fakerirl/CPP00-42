@@ -25,7 +25,7 @@ ex00 : Megaphone
 
 ex01 : My Awesome PhoneBook
 
-ex02 : The Job Of Your Dreams (pas dans le repo)
+ex02 : The Job Of Your Dreams *(pas dans le repo)*
 
 ---
 
