@@ -10,7 +10,7 @@ Il permet de découvrir la syntaxe de base du langage, les classes, les attribut
 ## 🛠️ Notions abordées
 
 - Compilation en C++
-- <iostream>
+- iostream
 - Classes et objets
 - Attributs publics / privés
 - Fonctions membres
