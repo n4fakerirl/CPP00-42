@@ -23,7 +23,7 @@ Il permet de découvrir la syntaxe de base du langage, les classes, les attribut
 
 ex00 : Megaphone
 
-ex01 : PhoneBook
+ex01 : My Awesome PhoneBook
 
 ex02 : The Job Of Your Dreams (pas dans le repo)
 
